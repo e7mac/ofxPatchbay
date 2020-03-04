@@ -51,7 +51,7 @@ void ofxPatchbay::disconnect2f(string controller, string controllable) {
     connections2f[controller].erase(controllable);
 }
 
-void ofxPatchbay::process() {
+void ofxPatchbay::update() {
     
     for(auto& connection : connections1f) {
         auto controller = controller1f[connection.first];

@@ -17,7 +17,7 @@ using namespace std;
 
 class ofxPatchbay {
 public:
-    void process();
+    void update();
 
     void connect1f(string controller, string controllable);
     void connect2f(string controller, string controllable);
