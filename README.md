@@ -41,3 +41,8 @@ ofxPatchbayInput input;
 And add this line to `ofApp::setup()`
 
 `input.registerInputs(patchbay);`
+
+## Dependencies
+
+Uses [ofxMidi](https://github.com/danomatika/ofxMidi) for MIDI controller input.
+Uses [Soundflower](https://github.com/mattingalls/Soundflower) (2ch) as the default Audio input. This can be changed.
