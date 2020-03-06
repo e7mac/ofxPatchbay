@@ -2,7 +2,6 @@
 
 //--------------------------------------------------------------
 void ofApp::setup(){
-    input.registerInputs(patchbay);
     patchbay.registerControllable1f("rect-size", [&] (float value) {
         rect.setSize(200*value, 200*value);
     });
@@ -22,7 +21,7 @@ void ofApp::setup(){
 
 //--------------------------------------------------------------
 void ofApp::update(){
-    patchbay.process();
+    patchbay.update();
 }
 
 //--------------------------------------------------------------

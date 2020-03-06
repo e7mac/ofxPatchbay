@@ -20,11 +20,11 @@ class ofxPatchbay;
 
 class ofxPatchbayInput {
 public:
-    void registerInputs(ofxPatchbay &patchbay);
-    void registerKeyboardInputs(ofxPatchbay &patchbay);
-    void registerMouseInputs(ofxPatchbay &patchbay);
-    void registerMidiInputs(ofxPatchbay &patchbay);
-    void registerAudioInputs(ofxPatchbay &patchbay);
+    void registerInputs(ofxPatchbay *patchbay);
+    void registerKeyboardInputs(ofxPatchbay *patchbay);
+    void registerMouseInputs(ofxPatchbay *patchbay);
+    void registerMidiInputs(ofxPatchbay *patchbay);
+    void registerAudioInputs(ofxPatchbay *patchbay);
 protected:
 
     ofxMidiInput midi;

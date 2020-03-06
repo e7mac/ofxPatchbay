@@ -12,13 +12,16 @@
 #include <map>
 #include <set>
 #include "ofMain.h"
+#include "ofxPatchbayInput.h"
 
 using namespace std;
 
 class ofxPatchbay {
 public:
+    ofxPatchbay();
     void update();
-
+    void registerAllInputs();
+    
     void connect1f(string controller, string controllable);
     void connect2f(string controller, string controllable);
 
@@ -44,6 +47,8 @@ protected:
 
     map<string, function<void (ofVec2f)>> controllable2f;
     map<string, function<ofVec2f ()>> controller2f;
+    
+    ofxPatchbayInput input;
 };
 
 #endif /* ofxPatchbay_h */

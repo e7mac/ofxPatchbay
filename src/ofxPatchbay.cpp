@@ -7,6 +7,10 @@
 
 #include "ofxPatchbay.h"
 
+ofxPatchbay::ofxPatchbay() {
+    input.registerInputs(this);
+}
+
 void ofxPatchbay::registerControllable1f(string name, function<void (float)> func) {
     controllable1f[name] = func;
 }

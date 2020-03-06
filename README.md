@@ -31,16 +31,15 @@ Or even audio:
 
 ## Installation
 
-Define these objects in ofApp.h
+Define this object in ofApp.h
 
 ```
 ofxPatchbay patchbay;
-ofxPatchbayInput input;
 ```
 
-And add this line to `ofApp::setup()`
+And add this line to `ofApp::update()`
 
-`input.registerInputs(patchbay);`
+`patchbay.update();`
 
 ## Dependencies
 

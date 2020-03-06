@@ -1,7 +1,6 @@
 #pragma once
 
 #include "ofMain.h"
-#include "ofxPatchbayInput.h"
 #include "ofxPatchbay.h"
 
 class ofApp : public ofBaseApp{
@@ -27,5 +26,4 @@ public:
     float scale;
     ofColor color = ofColor(255,0,0);
     ofxPatchbay patchbay;
-    ofxPatchbayInput input;
 };
