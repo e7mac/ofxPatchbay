@@ -28,6 +28,10 @@ public:
     void disconnect1f(string controller, string controllable);
     void disconnect2f(string controller, string controllable);
 
+    void disconnectAll();
+    void disconnectAll1f();
+    void disconnectAll2f();
+
     void registerControllable1f(string, function<void (float)>);
     void registerController1f(string, function<float ()>);
 

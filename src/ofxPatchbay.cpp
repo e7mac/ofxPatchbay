@@ -41,6 +41,20 @@ void ofxPatchbay::disconnect1f(string controller, string controllable) {
     connections1f[controller].erase(controllable);
 }
 
+void ofxPatchbay::disconnectAll() {
+    disconnectAll1f();
+    disconnectAll2f();
+}
+
+void ofxPatchbay::disconnectAll1f() {
+    connections1f.clear();
+}
+
+void ofxPatchbay::disconnectAll2f() {
+    connections2f.clear();
+}
+
+
 void ofxPatchbay::connect2f(string controller, string controllable) {
     if (controller1f.find(controller) == controller1f.end()) {
         ofLog(OF_LOG_WARNING, "Controller: " + controller + " not registered as yet");
