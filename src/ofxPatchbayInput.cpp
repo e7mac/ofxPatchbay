@@ -8,11 +8,19 @@
 #include "ofxPatchbayInput.h"
 #include "ofxPatchbay.h"
 
-void ofxPatchbayInput::registerInputs(ofxPatchbay *patchbay) {
-    registerKeyboardInputs(patchbay);
-    registerMouseInputs(patchbay);
-    registerMidiInputs(patchbay);
-    registerAudioInputs(patchbay);
+void ofxPatchbayInput::registerInputs(ofxPatchbay *patchbay, bool kb, bool mouse, bool midi, bool audio) {
+    if (kb) {
+        registerKeyboardInputs(patchbay);
+    }
+    if (mouse) {
+        registerMouseInputs(patchbay);
+    }
+    if (midi) {
+        registerMidiInputs(patchbay);
+    }
+    if (audio) {
+        registerAudioInputs(patchbay);
+    }
 }
 
 void ofxPatchbayInput::registerKeyboardInputs(ofxPatchbay *patchbay) {

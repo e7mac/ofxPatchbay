@@ -20,7 +20,7 @@ class ofxPatchbay;
 
 class ofxPatchbayInput {
 public:
-    void registerInputs(ofxPatchbay *patchbay);
+    void registerInputs(ofxPatchbay *patchbay, bool kb, bool mouse, bool midi, bool audio);
     void registerKeyboardInputs(ofxPatchbay *patchbay);
     void registerMouseInputs(ofxPatchbay *patchbay);
     void registerMidiInputs(ofxPatchbay *patchbay);

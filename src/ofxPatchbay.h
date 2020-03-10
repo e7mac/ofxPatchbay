@@ -18,7 +18,7 @@ using namespace std;
 
 class ofxPatchbay {
 public:
-    ofxPatchbay();
+    ofxPatchbay(bool kb = true, bool mouse = true, bool midi = true, bool audio = true);
     void update();
     void registerAllInputs();
     
