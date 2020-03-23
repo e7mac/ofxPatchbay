@@ -13,13 +13,14 @@
 
 class ofxAudioInput {
 public:
-    ofxAudioInput();
+    ofxAudioInput(string deviceName="BlackHole 16ch", int srate=44100, int bufferSize=1024);
     void audioIn(ofSoundBuffer& buffer);
     ofSoundBuffer *buffer;
 
     float getRMS();
 
 private:
+    void initDevice(ofSoundDevice device, int srate, int bufferSize);
     ofSoundStream soundStream;
 };
 

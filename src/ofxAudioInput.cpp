@@ -8,18 +8,14 @@
 #include "ofxAudioInput.h"
 #include "ofMain.h"
 
-ofxAudioInput::ofxAudioInput() {
+ofxAudioInput::ofxAudioInput(string deviceName, int srate, int bufferSize) {
     //    soundStream.printDeviceList();
-    auto devices = soundStream.getMatchingDevices("Soundflower (2ch)");
+    vector<ofSoundDevice> devices = soundStream.getMatchingDevices(deviceName);
+    if( devices.empty() ) {
+        devices = soundStream.getDeviceList();
+    }
     if( !devices.empty() ) {
-        ofSoundStreamSettings settings;
-        settings.setInDevice(devices[0]);
-        settings.setInListener(this);
-        settings.sampleRate = 44100;
-        settings.bufferSize = 1024;
-        settings.numInputChannels = 2;
-        settings.numOutputChannels = 0;
-        soundStream.setup(settings);
+        initDevice(devices[0], srate, bufferSize);
     }
 }
 
@@ -30,8 +26,15 @@ void ofxAudioInput::audioIn(ofSoundBuffer& buff) {
 float ofxAudioInput::getRMS() {
     if (!buffer) return 0;
     return buffer->getRMSAmplitude();
-//    auto flo = buffer->getBuffer();
-//    std::for_each(std::execution::par, flo.begin(), flo.end(), [&](int i) {
-//      flo[i] = flo[i] * flo[i]; // Error: data race
-//    });
+}
+
+void ofxAudioInput::initDevice(ofSoundDevice device, int srate, int bufferSize) {
+    ofSoundStreamSettings settings;
+    settings.setInDevice(device);
+    settings.setInListener(this);
+    settings.sampleRate = srate;
+    settings.bufferSize = bufferSize;
+    settings.numInputChannels = 2;
+    settings.numOutputChannels = 0;
+    soundStream.setup(settings);
 }
