@@ -19,7 +19,7 @@ using namespace std;
 class ofxPatchbay {
 public:
     ofxPatchbay(bool kb = true, bool mouse = true, bool midi = true, bool audio = true);
-    void update();
+    void update(int updateFrequency = 1);
     void registerAllInputs();
     
     void connect1f(string controller, string controllable);
@@ -53,6 +53,7 @@ protected:
     map<string, function<ofVec2f ()>> controller2f;
     
     ofxPatchbayInput input;
+    int _tick = 0;
 };
 
 #endif /* ofxPatchbay_h */

@@ -69,7 +69,12 @@ void ofxPatchbay::disconnect2f(string controller, string controllable) {
     connections2f[controller].erase(controllable);
 }
 
-void ofxPatchbay::update() {
+void ofxPatchbay::update(int updateFrequency) {
+    
+    _tick = (_tick + 1) % updateFrequency;
+    if (_tick != 0) {
+        return;
+    }
     
     for(auto& connection : connections1f) {
         auto controller = controller1f[connection.first];
