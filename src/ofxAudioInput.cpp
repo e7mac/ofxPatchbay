@@ -28,6 +28,12 @@ float ofxAudioInput::getRMS() {
     return buffer->getRMSAmplitude();
 }
 
+float ofxAudioInput::getLowPassedRMS() {
+    static float prevSample = 0;
+    float lpSample = prevSample + getRMS();
+    return lpSample;
+}
+
 void ofxAudioInput::initDevice(ofSoundDevice device, int srate, int bufferSize) {
     ofSoundStreamSettings settings;
     settings.setInDevice(device);

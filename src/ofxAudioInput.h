@@ -18,6 +18,7 @@ public:
     ofSoundBuffer *buffer;
 
     float getRMS();
+    float getLowPassedRMS();
 
 private:
     void initDevice(ofSoundDevice device, int srate, int bufferSize);

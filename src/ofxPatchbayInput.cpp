@@ -78,4 +78,8 @@ void ofxPatchbayInput::registerAudioInputs(ofxPatchbay *patchbay) {
     patchbay->registerController1f("audio-rms", [&] {
         return audio.getRMS();
     });
+
+    patchbay->registerController1f("audio-rms-smooth", [&] {
+        return audio.getLowPassedRMS();
+    });
 }
